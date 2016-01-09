@@ -1,2 +1,2 @@
 # JobskyApp
-中南大学就业网手机客户端
+this is a application to get jobs of Center South University
