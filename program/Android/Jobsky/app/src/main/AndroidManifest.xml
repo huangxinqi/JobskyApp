@@ -63,11 +63,12 @@
         <!-- For test only 测试设置 -->
         <!-- For test only 测试状态通知栏，需要打开的Activity -->
 
+
         <!-- Required  SDK核心功能 -->
         <service
             android:name="cn.jpush.android.service.DownloadService"
             android:enabled="true"
-            android:exported="false"></service>
+            android:exported="false" />
 
         <!-- Required SDK 核心功能 -->
         <!-- 可配置android:process参数将PushService放在其他进程中 -->
@@ -125,6 +126,7 @@
 
         <!-- User defined.  For test only  用户自定义的广播接收器 -->
 
+
         <!-- Required  . Enable it you can get statistics data with channel -->
         <meta-data
             android:name="JPUSH_CHANNEL"
@@ -133,6 +135,8 @@
             android:name="JPUSH_APPKEY"
             android:value="a3e49e2eea2af3c77114f37d" /> <!-- </>值来自开发者平台取得的AppKey -->
 
+        <activity android:name=".activity.SplashActivity" />
+        <activity android:name=".activity.LoginActivity"></activity>
     </application>
 
 </manifest>

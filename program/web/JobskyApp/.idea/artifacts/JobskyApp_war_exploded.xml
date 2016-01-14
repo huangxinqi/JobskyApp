@@ -1,0 +1,53 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="JobskyApp:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/JobskyApp_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="JobskyApp/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="JobskyApp" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/asm-3.3.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/jsp-api.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/jstl-1.0.3.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/ognl-3.0.6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/antlr-2.7.7.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/dom4j-1.6.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/servlet-api.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/asm-tree-3.3.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/spring-2.5.6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/commons-io-2.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/aopalliance-1.0.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/asm-commons-3.3.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/xml-apis-1.0.b2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/commons-lang3-3.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/freemarker-2.3.22.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/jandex-2.0.0.Final.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/javassist-3.11.0.GA.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/javassist-3.18.1-GA.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/xwork-core-2.3.24.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/commons-logging-1.1.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/struts2-core-2.3.24.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/spring-tx-4.2.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/commons-fileupload-1.3.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/spring-aop-4.2.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/spring-orm-4.2.0.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/spring-orm-4.2.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/spring-web-4.2.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/jboss-logging-3.3.0.Final.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/spring-core-4.2.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/spring-jdbc-4.2.0.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/spring-jdbc-4.2.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/hibernate-core-5.0.6.Final.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/spring-beans-4.2.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/spring-webmvc-4.2.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/spring-context-4.2.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/spring-expression-4.2.4.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/hibernate-jpa-2.1-api-1.0.0.Final.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/web/WEB-INF/libs/hibernate-commons-annotations-5.0.1.Final.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
