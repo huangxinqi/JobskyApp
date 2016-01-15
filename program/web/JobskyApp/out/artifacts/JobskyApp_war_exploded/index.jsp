@@ -12,5 +12,6 @@
   </head>
   <body>
   $END$
+  <a href="UserAction.action">Action</a>
   </body>
 </html>
