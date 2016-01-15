@@ -5,9 +5,4 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <package name="jobsky " extends="struts-default" >
-        <action name="UserAction" class="edu.csu.action.UserAction" method="login">
-            <result name="input">/WEB-INF/download.jsp</result>
-        </action>
-    </package>
 </struts>
