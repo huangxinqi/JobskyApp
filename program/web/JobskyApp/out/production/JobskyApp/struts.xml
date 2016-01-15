@@ -7,7 +7,7 @@
 <struts>
     <package name="jobsky " extends="struts-default" >
         <action name="UserAction" class="edu.csu.action.UserAction" method="login">
-            <result name="input">/WEB-INF/download.jsp</result>
+            <result name="success" type="dispatcher">/WEB-INF/download.jsp</result>
         </action>
     </package>
 </struts>
