@@ -5,4 +5,21 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+    <package name="jobsky" extends="struts-default">
+        <global-results>
+            <result name="error">/Error.jsp</result>
+        </global-results>
+        <action name="getAllNews" class="edu.csu.action.NewsAction" method="getAllNews">
+
+        </action>
+        <action name="download" class="edu.csu.action.NewsAction" method="download">
+            <result name="success">/WEB-INF/download.jsp</result>
+        </action>
+        <action name="test" class="edu.csu.action.ArticleAction" method="test">
+            <result name="success">/WEB-INF/download.jsp</result>
+        </action>
+        <action name="getAllTempArticle" class="edu.csu.action.TempArticleAction" method="getAllTempArticle"/>
+    </package>
 </struts>

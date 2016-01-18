@@ -4,12 +4,17 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
+    <!-- 我电脑上的sqlserver配置-->
     <property name="connection.password">sa</property>
     <property name="connection.username">sa</property>
-    <!-- <property name="connection.password">sa</property>
-   <property name="connection.username">sa</property>-->
+
     <property name="connection.url">jdbc:sqlserver://localhost:1433;databaseName=jobskynet8</property>
     <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+
+    <!-- 好蛋疼啊，服务器上的sqlserver版本和端口都不一致的....下面是服务器的sqlserver配置-->
+    <!-- <property name="connection.password">sa</property>
+   <property name="connection.username">sa</property>-->
+
     <property name="show_sql">true</property>
     <property name="show_sqlserver">true</property>
     <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
