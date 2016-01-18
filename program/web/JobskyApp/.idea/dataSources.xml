@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="5770648">
+    <data-source source="LOCAL" name="SQL Server (Microsoft) - jobskynet8@localhost" uuid="5e867004-6fa7-498f-ac62-d9f2f68ad016">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://localhost:1433;databaseName=jobskynet8</jdbc-url>
+    </data-source>
+  </component>
+</project>

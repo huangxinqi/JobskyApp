@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="SQL Server (Microsoft) - jobskynet8@localhost" uuid="5e867004-6fa7-498f-ac62-d9f2f68ad016">
+      <secret-storage>master_key</secret-storage>
+      <user-name>sa</user-name>
+      <schema-pattern>jobskynet8.*</schema-pattern>
+      <default-schemas>jobskynet8.*</default-schemas>
+    </data-source>
+  </component>
+</project>
