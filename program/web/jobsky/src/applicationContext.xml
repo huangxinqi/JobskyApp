@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byType"
+       >
+    <!-- autowire="byType" 根据类型自动装配bean-->
+
+    <bean id="adminService" class="edu.csu.service.AdminService" />
+    <bean id="adminDAO" class="edu.csu.dao.AdminDAO"/>
+
+    <bean id="newsService" class="edu.csu.service.NewsService" />
+    <bean id="newsDao" class="edu.csu.dao.NewsDAO"/>
+    <bean id="articleDAO" class="edu.csu.dao.ArticleDAO"></bean>
+    <bean id="articleService" class="edu.csu.service.ArticleService"></bean>
+
+    <bean id="tempArtilceDAO" class="edu.csu.dao.TempArticleDAO"></bean>
+    <bean id="tempArticleService" class="edu.csu.service.TempArticleService"></bean>
+</beans>
