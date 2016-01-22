@@ -1,11 +1,5 @@
 package edu.csu.jobsky.widget;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -24,9 +18,16 @@ import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import edu.csu.jobsky.R;
 
@@ -64,6 +65,15 @@ public class SlideShowView extends FrameLayout {
     private ScheduledExecutorService scheduledExecutorService;
 
     private Context context;
+    private DisplayImageOptions displayImageOptions;
+
+    public void setImageUrls(String[] imageUrls) {
+        this.imageUrls = imageUrls;
+    }
+
+    public static boolean isAutoPlay() {
+        return isAutoPlay;
+    }
 
     //Handler
     private Handler handler = new Handler(){
@@ -91,16 +101,11 @@ public class SlideShowView extends FrameLayout {
 
         initImageLoader(context);
 
-        initData();
-        if(isAutoPlay){
-            startPlay();
-        }
-
     }
     /**
      * 开始轮播图切换
      */
-    private void startPlay(){
+    public void startPlay(){
         scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         scheduledExecutorService.scheduleAtFixedRate(new SlideShowTask(), 1, 4, TimeUnit.SECONDS);
     }
@@ -113,10 +118,10 @@ public class SlideShowView extends FrameLayout {
     /**
      * 初始化相关Data
      */
-    private void initData(){
+    public void initData(){
         imageViewsList = new ArrayList<ImageView>();
         dotViewsList = new ArrayList<View>();
-
+        displayImageOptions=new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).build();
         // 一步任务获取图片
         new GetListTask().execute("");
     }
@@ -136,8 +141,7 @@ public class SlideShowView extends FrameLayout {
         for (int i = 0; i < imageUrls.length; i++) {
             ImageView view =  new ImageView(context);
             view.setTag(imageUrls[i]);
-            if(i==0)//给一个默认图
-                view.setBackgroundResource(R.drawable.bg_default);
+            view.setBackgroundResource(R.drawable.bg_default);
             view.setScaleType(ScaleType.FIT_XY);
             imageViewsList.add(view);
 
@@ -173,7 +177,7 @@ public class SlideShowView extends FrameLayout {
         public Object instantiateItem(View container, int position) {
             ImageView imageView = imageViewsList.get(position);
 
-            imageLoader.displayImage(imageView.getTag() + "", imageView);
+            imageLoader.displayImage(imageView.getTag() + "", imageView,displayImageOptions);
 
             ((ViewPager)container).addView(imageViewsList.get(position));
             return imageViewsList.get(position);
@@ -256,17 +260,16 @@ public class SlideShowView extends FrameLayout {
         @Override
         public void onPageSelected(int pos) {
             // TODO Auto-generated method stub
-
+            resetDots();
             currentItem = pos;
-            for(int i=0;i < dotViewsList.size();i++){
-                if(i == pos){
-                    ((View)dotViewsList.get(pos)).setBackgroundResource(R.drawable.dot_focus);
-                }else {
-                    ((View)dotViewsList.get(i)).setBackgroundResource(R.drawable.dot_blur);
-                }
-            }
+            ((View)dotViewsList.get(pos)).setBackgroundResource(R.drawable.dot_focus);
         }
 
+    }
+    private void resetDots(){
+        for(int i=0;i < dotViewsList.size();i++){
+            ((View)dotViewsList.get(i)).setBackgroundResource(R.drawable.dot_blur);
+        }
     }
 
     /**
@@ -312,14 +315,7 @@ public class SlideShowView extends FrameLayout {
         @Override
         protected Boolean doInBackground(String... params) {
             try {
-                // 这里一般调用服务端接口获取一组轮播图片，下面是从百度找的几个图片
-
-                imageUrls = new String[]{
-                        "http://jobsky.csu.edu.cn/NewsUploadFiles/130952180224845132%E8%AE%B2%E5%BA%A7%E6%96%B0%E9%97%BB%E5%9B%BE%E7%89%87.jpg",
-                        "http://jobsky.csu.edu.cn/NewsUploadFiles/130925478538908567%E5%BE%AE%E4%BF%A1%E5%AE%A3%E4%BC%A0%E5%9B%BE2.jpg",
-                        "http://jobsky.csu.edu.cn/NewsUploadFiles/130908662074151820%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B94%E7%94%9F%E6%BA%90%E4%BF%A1%E6%81%AF_mh1446296386514.jpg",
-                        "http://jobsky.csu.edu.cn/NewsUploadFiles/130953217967640624%E5%B0%B1%E4%B8%9A%E6%94%BF%E7%AD%96.jpg"
-                };
+                //可以在onPostExecute()之前执行
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -354,5 +350,6 @@ public class SlideShowView extends FrameLayout {
                 .build();
         // Initialize ImageLoader with configuration.
         ImageLoader.getInstance().init(config);
+
     }
 }

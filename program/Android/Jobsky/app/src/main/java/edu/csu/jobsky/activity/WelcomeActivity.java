@@ -1,7 +1,6 @@
 package edu.csu.jobsky.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import edu.csu.jobsky.R;
@@ -20,5 +19,6 @@ public class WelcomeActivity extends BaseActivity {
         else{
             startActivity(new Intent().setClass(WelcomeActivity.this,MainActivity.class));
         }
+        finish();
     }
 }
