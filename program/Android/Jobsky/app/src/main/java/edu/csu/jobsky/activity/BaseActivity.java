@@ -20,4 +20,11 @@ public class BaseActivity extends AppCompatActivity {
         super.onPause();
         JPushInterface.onPause(this);
     }
+
+    /**
+     * 这是返回上一个actiivty的按钮响应的方法
+     */
+    protected void back(){
+        finish();
+    }
 }

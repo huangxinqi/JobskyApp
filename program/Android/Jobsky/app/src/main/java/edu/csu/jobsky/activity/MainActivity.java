@@ -10,28 +10,33 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.google.gson.Gson;
+
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 import edu.csu.jobsky.R;
 import edu.csu.jobsky.adapter.NavigationItemAdapter;
-import edu.csu.jobsky.fragment.CalendarFragment;
+import edu.csu.jobsky.bean.WeatherBean;
 import edu.csu.jobsky.fragment.ChatFragment;
 import edu.csu.jobsky.fragment.HomeFragment;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private HomeFragment homeFragment;
-    private CalendarFragment calendarFragment;
     private ChatFragment chatFragment;
-
+    private Toolbar toolbar;
     private ListView lvNavigation;
 
 
     private FragmentManager fragmentManager;
     private int fragmentIndex;
 
+    private TextView tvDegree;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +47,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void initializedView(){
         fragmentManager=getSupportFragmentManager();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
        /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -61,8 +66,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         LayoutInflater inflater=LayoutInflater.from(this);
         lvNavigation.addHeaderView(inflater.inflate(R.layout.nav_header_main,lvNavigation,false));
-        lvNavigation.addFooterView(inflater.inflate(R.layout.item_nav_footer,lvNavigation,false));
+        //lvNavigation.addFooterView(inflater.inflate(R.layout.item_nav_footer,lvNavigation,false));
         lvNavigation.setAdapter(new NavigationItemAdapter(MainActivity.this));
+
+        tvDegree= (TextView) findViewById(R.id.tv_degree);
+        setTemperature();
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -94,14 +102,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     fragmentTransaction.show(chatFragment);
                 }
                 break;
-            case 2:
-                if (calendarFragment == null) {
-                    calendarFragment = new CalendarFragment();
-                    fragmentTransaction.add(R.id.fl_fragment, calendarFragment);
-                } else {
-                    fragmentTransaction.show(calendarFragment);
-                }
-                break;
         }
         fragmentTransaction.commit();
     }
@@ -112,9 +112,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
         if (chatFragment != null) {
             fragmentTransaction.hide(chatFragment);
-        }
-        if (calendarFragment != null) {
-            fragmentTransaction.hide(calendarFragment);
         }
     }
 
@@ -129,7 +126,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
@@ -149,7 +146,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
 
     @Override
@@ -163,4 +160,36 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
         }
     }
+
+     private void setTemperature(){
+        RequestParams params=new RequestParams("http://apicloud.mob.com/v1/weather/query");
+        params.addQueryStringParameter("city","长沙");
+        params.addQueryStringParameter("province","湖南");
+        params.addQueryStringParameter("key","f922b4f31ebd");
+        x.http().get(params, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String s) {
+                if (s!=null){
+                    WeatherBean weatherBean=new Gson().fromJson(s,WeatherBean.class);
+                    if (weatherBean.getRetCode().equals("200")){
+                        tvDegree.setText(weatherBean.getResult().get(0).getTemperature());
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable throwable, boolean b) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException e) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });    }
 }
