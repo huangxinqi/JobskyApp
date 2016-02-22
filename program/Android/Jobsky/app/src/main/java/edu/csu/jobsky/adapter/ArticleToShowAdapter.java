@@ -2,6 +2,7 @@ package edu.csu.jobsky.adapter;
 
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +10,16 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.xutils.common.Callback;
+import org.xutils.common.util.LogUtil;
+import org.xutils.image.ImageOptions;
+import org.xutils.x;
+
 import java.util.List;
 
 import edu.csu.jobsky.R;
+import edu.csu.jobsky.bean.ArticleToShowBean;
+import edu.csu.jobsky.util.DateUtil;
 
 /**
  * create by huangxinqi
@@ -21,9 +29,9 @@ import edu.csu.jobsky.R;
 public class ArticleToShowAdapter extends BaseAdapter{
 
     private Context context;
-    private List<String> list;
+    private List<ArticleToShowBean.ArticlesEntity> list;
     private ViewHolder viewHolder;
-    public ArticleToShowAdapter(Context content,List<String> list){
+    public ArticleToShowAdapter(Context content,List<ArticleToShowBean.ArticlesEntity> list){
         this.context=content;
         this.list=list;
     }
@@ -59,8 +67,56 @@ public class ArticleToShowAdapter extends BaseAdapter{
             viewHolder= (ViewHolder) convertView.getTag();
         }
 
+        viewHolder.tvArticleTitle.setText(list.get(position).getTitle());
+        viewHolder.tvClickTime.setText(list.get(position).getClickTime()+"");
 
-        return LayoutInflater.from(context).inflate(R.layout.item_article,null);
+        viewHolder.tvTime.setText(DateUtil.dateFormat(list.get(position).getTime()));
+        switch (list.get(position).getPlaceFirstID()){
+            case 1:
+                viewHolder.ivTip.setImageResource(R.drawable.icon_benbu);
+                break;
+            case 2:
+                viewHolder.ivTip.setImageResource(R.drawable.icon_xiangya);
+                break;
+            case 3:
+                viewHolder.ivTip.setImageResource(R.drawable.icon_tiedao);
+                break;
+        }
+        ImageOptions options=new ImageOptions.Builder()
+                // 是否忽略GIF格式的图片
+                .setIgnoreGif(false)
+                // 图片缩放模式
+                .setImageScaleType(ImageView.ScaleType.FIT_XY)
+                // 下载中显示的图片
+                .setLoadingDrawableId(R.drawable.logo_default)
+                // 下载失败显示的图片
+                .setFailureDrawableId(R.drawable.logo_default)
+                // 得到ImageOptions对象
+                .build();
+
+
+        x.image().bind(viewHolder.ivLogo, "http://7xpbgj.com1.z0.glb.clouddn.com/article%2Fimage%2Fdefault2.jpg", options, new Callback.CommonCallback<Drawable>() {
+            @Override
+            public void onSuccess(Drawable drawable) {
+                LogUtil.e("下载成功");
+            }
+
+            @Override
+            public void onError(Throwable throwable, boolean b) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException e) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+        return convertView;
     }
     class ViewHolder{
         TextView tvClickTime,tvArticleTitle,tvTime;

@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="深圳市普波科技有限公司深圳市普波科技有限公司深圳市普波科技有限公司"
+            android:text="深圳市普波科技有限公司"
             android:textSize="@dimen/font_size_big"
             android:id="@+id/tv_article_title"
             android:minLines="2"
