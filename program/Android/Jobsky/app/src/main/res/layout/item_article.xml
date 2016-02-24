@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:padding="5dp">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="70dp"
+            android:layout_height="65dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/baidu"/>
+        <ImageView
+            android:layout_marginTop="5dp"
+            android:layout_width="20dp"
+            android:layout_height="10dp"
+            android:src="@drawable/icon_benbu"
+            android:id="@+id/iv_tip"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="深圳市普波科技有限公司"
+            android:textSize="@dimen/font_size_big"
+            android:id="@+id/tv_article_title"
+            android:minLines="2"
+            android:maxLines="2"
+            android:ellipsize="end"
+            />
+        <LinearLayout
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/tv_article_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/clock"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2016-1-27"
+                    android:id="@+id/tv_time"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/cursor"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_size_normal"
+                    android:text="1200"
+                    android:id="@+id/tv_click_times"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

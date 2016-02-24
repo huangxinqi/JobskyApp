@@ -5,5 +5,11 @@
     <color name="colorAccent">#8bd8fb</color>
     <color name="white">#FFF</color>
     <color name="black">#000</color>
-    <color name="pink">#FFF</color>
+    <color name="grey">#E0E0E0</color>
+
+    <!-- section(栏目) color-->
+    <color name="section_red">#FF5722</color>
+    <color name="section_yellow">#FFCA28</color>
+    <color name="section_green">#1DE9B6</color>
+    <color name="section_purple">#673AB7</color>
 </resources>

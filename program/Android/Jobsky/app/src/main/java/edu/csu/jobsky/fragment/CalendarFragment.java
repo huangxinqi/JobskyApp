@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import edu.csu.jobsky.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * 校招日历fragment
  */
 public class CalendarFragment extends Fragment {
 

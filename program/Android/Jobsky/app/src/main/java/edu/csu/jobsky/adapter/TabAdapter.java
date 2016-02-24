@@ -8,7 +8,6 @@ import edu.csu.jobsky.fragment.BenbuFragment;
 import edu.csu.jobsky.fragment.CareerFragment;
 import edu.csu.jobsky.fragment.IndexFragment;
 import edu.csu.jobsky.fragment.OnlineFragment;
-import edu.csu.jobsky.fragment.RecommandFragment;
 import edu.csu.jobsky.fragment.TiedaoFragment;
 import edu.csu.jobsky.fragment.XiangyaFragment;
 

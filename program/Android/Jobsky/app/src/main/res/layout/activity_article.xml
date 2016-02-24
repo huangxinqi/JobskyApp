@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/grey"
+    tools:context="edu.csu.jobsky.activity.ArticleActivity">
+
+    <ImageView
+        android:id="@+id/iv_article"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_default" />
+
+    <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_article">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="艾维尔(上海)企业发展有限公司"
+            android:textSize="@dimen/font_size_large"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tv_article_title"
+            />
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/tv_article_title"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:text="招聘时间:2015年12月29日 9:00"
+            android:textSize="@dimen/font_size_middle"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="招聘地点"
+            android:textSize="@dimen/font_size_large"
+            android:id="@+id/tv_place"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_place"
+            android:id="@+id/tv_address"
+            android:textSize="@dimen/font_size_normal"
+            android:text="校本部科教楼"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</LinearLayout>
