@@ -14,104 +14,55 @@
             android:layout_height="160dp"/>
 
         <LinearLayout
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:background="@color/white"
             android:layout_below="@+id/slide_show_view"
             android:id="@+id/ll_section"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:padding="5dp"
             android:layout_height="wrap_content">
-            <RelativeLayout
-                android:layout_marginRight="2dp"
-                android:id="@+id/rl_hot"
+            <ImageButton
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="3dp"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/section_hot"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_marginTop="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:id="@+id/iv_hot"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/icon_hot"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/iv_hot"
-                    android:text="热门招聘"
-                    android:textColor="@color/white"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_marginRight="2dp"
+                android:background="@null"
+                android:scaleType="fitXY"
+                android:layout_height="60dp"
+                android:id="@+id/iv_recommend"
+                android:src="@drawable/icon_recommend_employment"
+                />
+            <ImageButton
+                android:scaleType="fitXY"
+                android:layout_marginRight="3dp"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:id="@+id/rl_new"
-                android:background="@drawable/section_new"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_marginTop="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:id="@+id/iv_new"
-                    android:src="@drawable/icon_hot"
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:layout_below="@+id/iv_new"
-                    android:layout_centerHorizontal="true"
-                    android:text="实时动态"
-                    android:textColor="@color/white"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/rl_calendar"
-                android:layout_marginRight="2dp"
+                android:background="@null"
+                android:layout_height="60dp"
+                android:id="@+id/iv_current"
+                android:src="@drawable/icon_current"
+                />
+            <ImageButton
+                android:scaleType="fitXY"
+                android:layout_marginRight="3dp"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/section_calendar"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_marginTop="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:id="@+id/iv_calendar"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/icon_calendar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:layout_below="@+id/iv_calendar"
-                    android:text="校招日历"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/white"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/rl_history"
+                android:layout_height="60dp"
+                android:id="@+id/iv_calendar"
+                android:background="@null"
+                android:src="@drawable/icon_calendar"
+                />
+            <ImageButton
                 android:layout_width="0dp"
-                android:background="@drawable/section_history"
                 android:layout_weight="1"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_marginTop="1dp"
-                    android:layout_marginBottom="1dp"
-                    android:id="@+id/iv_history"
-                    android:src="@drawable/icon_history"
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:layout_below="@+id/iv_history"
-                    android:text="我的足迹"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="@color/white"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </RelativeLayout>
+                android:layout_height="60dp"
+                android:scaleType="fitXY"
+                android:id="@+id/iv_history"
+                android:background="@null"
+                android:src="@drawable/icon_history"
+                android:layout_marginRight="5dp"
+                />
         </LinearLayout>
         <FrameLayout
             android:layout_below="@+id/ll_section"

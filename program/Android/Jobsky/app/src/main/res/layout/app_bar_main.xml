@@ -32,21 +32,22 @@
 
                     <ImageView
                         android:id="@+id/iv_employ"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/icon_employ" />
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/icon_employ_selected" />
 
                     <ImageView
                         android:layout_marginLeft="30dp"
                         android:id="@+id/iv_user"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/icon_setting" />
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/icon_person" />
                     <ImageView
                         android:layout_marginLeft="30dp"
                         android:id="@+id/iv_post"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:src="@drawable/icon_post" />
                 </LinearLayout>
 

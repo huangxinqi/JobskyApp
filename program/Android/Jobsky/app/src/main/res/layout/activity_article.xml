@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:scaleType="fitXY"
-        android:src="@drawable/bg_default" />
+        android:src="@drawable/logo_default" />
 
     <RelativeLayout
         android:layout_marginTop="5dp"
@@ -25,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="艾维尔(上海)企业发展有限公司"
+            android:textStyle="bold"
             android:textSize="@dimen/font_size_large"
             android:layout_centerHorizontal="true"
             android:id="@+id/tv_article_title"
@@ -36,7 +37,7 @@
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
             android:text="招聘时间:2015年12月29日 9:00"
-            android:textSize="@dimen/font_size_middle"
+            android:textSize="@dimen/font_size_big"
             />
 
     </RelativeLayout>
@@ -63,8 +64,8 @@
             />
         <TextView
             android:layout_width="wrap_content"
-
+            android:id="@+id/tv_address_detail"
             android:layout_height="wrap_content" />
     </RelativeLayout>
-
+    
 </LinearLayout>

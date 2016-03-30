@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
+import android.widget.ImageButton;
 import android.widget.ScrollView;
 
 import edu.csu.jobsky.R;
@@ -29,10 +29,10 @@ public class IndexFragment extends Fragment implements View.OnClickListener {
     private LatestFragment latestFragment;
     private FragmentManager fragmentManager;
 
-    private RelativeLayout rl_hot;
-    private RelativeLayout rl_new;
-    private RelativeLayout rl_calendar;
-    private RelativeLayout rl_history;
+    private ImageButton ivRecommend;
+    private ImageButton ivCurrent;
+    private ImageButton ivHistory;
+    private ImageButton ivCalendar;
 
     @Nullable
     @Override
@@ -43,17 +43,19 @@ public class IndexFragment extends Fragment implements View.OnClickListener {
         fragmentManager=getChildFragmentManager();
         slideShowView= (SlideShowView) view.findViewById(R.id.slide_show_view);
         flSection= (FrameLayout) view.findViewById(R.id.fl_section);
-        rl_calendar= (RelativeLayout) view.findViewById(R.id.rl_calendar);
-        rl_hot= (RelativeLayout) view.findViewById(R.id.rl_hot);
-        rl_new = (RelativeLayout) view.findViewById(R.id.rl_new);
-        rl_history= (RelativeLayout) view.findViewById(R.id.rl_history);
-        rl_calendar.setOnClickListener(this);
-        rl_hot.setOnClickListener(this);
-        rl_history.setOnClickListener(this);
-        rl_new.setOnClickListener(this);
+
+        ivCalendar= (ImageButton) view.findViewById(R.id.iv_calendar);
+        ivCurrent= (ImageButton) view.findViewById(R.id.iv_calendar);
+        ivRecommend= (ImageButton) view.findViewById(R.id.iv_recommend);
+        ivHistory= (ImageButton) view.findViewById(R.id.iv_history);
+        ivHistory.setOnClickListener(this);
+        ivCalendar.setOnClickListener(this);
+        ivCurrent.setOnClickListener(this);
+        ivRecommend.setOnClickListener(this);
         setSelectedFragment(0);
         slideShowView.setImageUrls(new String[]{
-                "http://jobsky.csu.edu.cn/NewsUploadFiles/130952180224845132讲座新闻图片.jpg"
+                "http://jobsky.csu.edu.cn/NewsUploadFiles/131011784218589031%E8%A7%81%E9%9D%A2%E4%BC%9A.jpg"
+                ,"http://jobsky.csu.edu.cn/NewsUploadFiles/130953217967640624%E5%B0%B1%E4%B8%9A%E6%94%BF%E7%AD%96.jpg"
                 ,"http://jobsky.csu.edu.cn/NewsUploadFiles/130925478538908567微信宣传图2.jpg"
                 ,"http://jobsky.csu.edu.cn/NewsUploadFiles/130908662074151820新建文件夹4生源信息_mh1446296386514.jpg"
         });
@@ -124,16 +126,16 @@ public class IndexFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.rl_hot:
+            case R.id.iv_recommend:
                 setSelectedFragment(0);
                 break;
-            case R.id.rl_new:
+            case R.id.iv_current:
                 setSelectedFragment(1);
                 break;
-            case R.id.rl_calendar:
+            case R.id.iv_calendar:
                 setSelectedFragment(2);
                 break;
-            case R.id.rl_history:
+            case R.id.iv_history:
                 setSelectedFragment(3);
                 break;
         }

@@ -147,7 +147,8 @@
         <activity
             android:name=".activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.ArticleActivity"></activity>
+        <activity android:name=".activity.ArticleActivity" />
+        <activity android:name=".activity.SearchActivitty"></activity>
     </application>
 
 </manifest>

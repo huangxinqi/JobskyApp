@@ -11,6 +11,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,18 +21,25 @@ import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
+import java.io.File;
+
 import edu.csu.jobsky.R;
 import edu.csu.jobsky.adapter.NavigationItemAdapter;
 import edu.csu.jobsky.bean.WeatherBean;
-import edu.csu.jobsky.fragment.ChatFragment;
 import edu.csu.jobsky.fragment.HomeFragment;
+import edu.csu.jobsky.fragment.PostFragment;
+import edu.csu.jobsky.fragment.UserFragment;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private HomeFragment homeFragment;
-    private ChatFragment chatFragment;
+    private PostFragment postFragment;
+    private UserFragment userFragment;
     private Toolbar toolbar;
     private ListView lvNavigation;
 
+    private ImageView ivPost;
+    private ImageView ivUser;
+    private ImageView ivEmploy;
 
     private FragmentManager fragmentManager;
     private int fragmentIndex;
@@ -46,6 +54,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
     private void initializedView(){
         fragmentManager=getSupportFragmentManager();
+
+        ivEmploy= (ImageView) findViewById(R.id.iv_employ);
+        ivPost= (ImageView) findViewById(R.id.iv_post);
+        ivUser= (ImageView) findViewById(R.id.iv_user);
+        ivUser.setOnClickListener(this);
+        ivPost.setOnClickListener(this);
+        ivEmploy.setOnClickListener(this);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -85,8 +100,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         this.fragmentIndex = fragmentIndex;
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         hideFragment(fragmentTransaction);
+        reset();
         switch (fragmentIndex) {
             case 0:
+                ivEmploy.setImageResource(R.drawable.icon_employ_selected);
                 if (homeFragment == null) {
                     homeFragment = new HomeFragment();
                     fragmentTransaction.add(R.id.fl_fragment, homeFragment);
@@ -95,13 +112,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
                 break;
             case 1:
-                if (chatFragment == null) {
-                    chatFragment=new ChatFragment();
-                    fragmentTransaction.add(R.id.fl_fragment, chatFragment);
+                ivUser.setImageResource(R.drawable.icon_person_selected);
+                if (userFragment == null) {
+                    userFragment=new UserFragment();
+                    fragmentTransaction.add(R.id.fl_fragment, userFragment);
                 } else {
-                    fragmentTransaction.show(chatFragment);
+                    fragmentTransaction.show(userFragment);
                 }
                 break;
+            case 2:
+                ivPost.setImageResource(R.drawable.icon_post_selected);
+                if (postFragment==null){
+                    postFragment=new PostFragment();
+                    fragmentTransaction.add(R.id.fl_fragment,postFragment);
+                }
+                else{
+                    fragmentTransaction.show(postFragment);
+                }
         }
         fragmentTransaction.commit();
     }
@@ -110,11 +137,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         if ( homeFragment!= null) {
             fragmentTransaction.hide(homeFragment);
         }
-        if (chatFragment != null) {
-            fragmentTransaction.hide(chatFragment);
+        if (userFragment != null) {
+            fragmentTransaction.hide(userFragment);
+        }
+        if (postFragment!=null){
+            fragmentTransaction.hide(postFragment);
         }
     }
 
+    private void reset(){
+        ivEmploy.setImageResource(R.drawable.icon_employ);
+        ivUser.setImageResource(R.drawable.icon_person);
+        ivPost.setImageResource(R.drawable.icon_post);
+    }
 
     @Override
     public void onBackPressed() {
@@ -152,12 +187,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.rl_tab_home:
+            case R.id.iv_employ:
                 setSelectedFragment(0);
                 break;
-            case R.id.rl_tab_chat:
+            case R.id.iv_user:
                 setSelectedFragment(1);
                 break;
+            case R.id.iv_post:
+                setSelectedFragment(2);
         }
     }
 
@@ -191,5 +228,62 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             public void onFinished() {
 
             }
-        });    }
+        });
+     }
+
+    /**
+     * 检查版本
+     */
+    private void getLatestVersion(){
+        RequestParams params=new RequestParams();
+        x.http().get(params,new Callback.CommonCallback<Object>(){
+
+            @Override
+            public void onSuccess(Object o) {
+
+            }
+
+            @Override
+            public void onError(Throwable throwable, boolean b) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException e) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
+    private void downloadApk(){
+        RequestParams requestParams=new RequestParams();
+
+        x.http().get(requestParams, new Callback.CommonCallback<File>() {
+            @Override
+            public void onSuccess(File file) {
+
+            }
+
+            @Override
+            public void onError(Throwable throwable, boolean b) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException e) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
 }

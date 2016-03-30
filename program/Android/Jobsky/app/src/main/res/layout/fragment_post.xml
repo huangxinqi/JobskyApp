@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <edu.csu.jobsky.widget.SlideShowView
+        android:id="@+id/ssv_post"
+        android:layout_width="match_parent"
+        android:layout_height="150dp" />
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <RelativeLayout
+            android:id="@+id/rl_interview_experience"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_interview_experience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chat" />
+
+            <TextView
+                android:text="@string/interview_experience"
+                android:layout_marginTop="10dp"
+                android:id="@+id/tv_interview_experience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_interview_experience" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_tucao"
+            android:layout_width="0dp"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_tucao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pencil" />
+
+            <TextView
+                android:id="@+id/tv_tucao"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome_tucao"
+                android:layout_below="@+id/iv_tucao" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:gravity="center_horizontal"
+            android:id="@+id/rl_senior"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_senior"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/quote" />
+
+            <TextView
+                android:id="@+id/tv_senior"
+                android:text="@string/senior_say"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_senior" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_consult"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_consult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mail" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="@string/consult"
+                android:id="@+id/tv_consult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_consult" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

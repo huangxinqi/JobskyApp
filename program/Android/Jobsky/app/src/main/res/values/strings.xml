@@ -9,5 +9,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="click_again_to_exit">再按一次退出CSU就业助手</string>
+    <string name="interview_experience">面试经验</string>
+    <string name="welcome_tucao">欢迎吐槽</string>
+    <string name="consult">答疑解惑</string>
+    <string name="senior_say">学长学姐说</string>
+    <string name="search">搜索</string>
 
 </resources>

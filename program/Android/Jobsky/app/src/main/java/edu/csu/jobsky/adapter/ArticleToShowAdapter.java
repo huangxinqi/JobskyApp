@@ -20,6 +20,7 @@ import java.util.List;
 import edu.csu.jobsky.R;
 import edu.csu.jobsky.bean.ArticleToShowBean;
 import edu.csu.jobsky.util.DateUtil;
+import edu.csu.jobsky.util.StringUtil;
 
 /**
  * create by huangxinqi
@@ -61,6 +62,7 @@ public class ArticleToShowAdapter extends BaseAdapter{
             viewHolder.tvTime= (TextView) convertView.findViewById(R.id.tv_time);
             viewHolder.ivLogo= (ImageView) convertView.findViewById(R.id.iv_logo);
             viewHolder.ivTip= (ImageView) convertView.findViewById(R.id.iv_tip);
+            viewHolder.tvIntroduction= (TextView) convertView.findViewById(R.id.tv_introduction);
             convertView.setTag(viewHolder);
         }
         else{
@@ -69,7 +71,7 @@ public class ArticleToShowAdapter extends BaseAdapter{
 
         viewHolder.tvArticleTitle.setText(list.get(position).getTitle());
         viewHolder.tvClickTime.setText(list.get(position).getClickTime()+"");
-
+        viewHolder.tvIntroduction.setText(StringUtil.htmlToStr(list.get(position).getArticleContent()));
         viewHolder.tvTime.setText(DateUtil.dateFormat(list.get(position).getTime()));
         switch (list.get(position).getPlaceFirstID()){
             case 1:
@@ -94,8 +96,8 @@ public class ArticleToShowAdapter extends BaseAdapter{
                 // 得到ImageOptions对象
                 .build();
 
-
-        x.image().bind(viewHolder.ivLogo, "http://7xpbgj.com1.z0.glb.clouddn.com/article%2Fimage%2Fdefault2.jpg", options, new Callback.CommonCallback<Drawable>() {
+        int picIndex=position%22+1;//因为默认背景图片的数量是22张
+        x.image().bind(viewHolder.ivLogo, "http://7xpbgj.com1.z0.glb.clouddn.com/article%2Fimage%2Fdefault"+picIndex+".jpg", options, new Callback.CommonCallback<Drawable>() {
             @Override
             public void onSuccess(Drawable drawable) {
                 LogUtil.e("下载成功");
@@ -119,7 +121,7 @@ public class ArticleToShowAdapter extends BaseAdapter{
         return convertView;
     }
     class ViewHolder{
-        TextView tvClickTime,tvArticleTitle,tvTime;
+        TextView tvClickTime,tvArticleTitle,tvTime,tvIntroduction;
         ImageView ivLogo;
         ImageView ivTip;
     }
